@@ -13,7 +13,7 @@ First, ensure you have Python 3 installed on your system.
 2.  Navigate to the `git-sync` directory.
 3.  Run the command, providing the path to your backup folder:
     ```shell
-    run.bat "C:\Path\To\Your\Backups"
+    run.bat -b "C:\Path\To\Your\Backups"
     ```
 
 ### Linux / macOS
@@ -26,8 +26,10 @@ First, ensure you have Python 3 installed on your system.
     ```
 4.  Run the command, providing the path to your backup folder:
     ```shell
-    ./run.sh "/path/to/your/backups"
+    ./run.sh -b "/path/to/your/backups"
     ```
+
+**Note:** The backup directory must now be specified using the `-b` or `--backup-dir` flag. Always quote paths that contain spaces.
 
 ### First Run
 

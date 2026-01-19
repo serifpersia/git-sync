@@ -104,11 +104,10 @@ def prompt_for_username(config):
 
 def main():
     parser = argparse.ArgumentParser(description="A tool to back up your git repositories.")
-    parser.add_argument('backup_dir_pos', nargs='?', default=None, help="Directory where repositories will be backed up (positional).")
-    parser.add_argument('-b', '--backup-dir', dest='backup_dir_opt', help="Directory where repositories will be backed up (optional).")
+    parser.add_argument('-b', '--backup-dir', dest='backup_dir_opt', nargs='+', help="Directory where repositories will be backed up. Handles paths with spaces.")
     args = parser.parse_args()
 
-    backup_dir = args.backup_dir_pos or args.backup_dir_opt or './repos'
+    backup_dir = ' '.join(args.backup_dir_opt) if args.backup_dir_opt else './repos'
     
     if not os.path.exists(backup_dir):
         print(f"Backup directory '{backup_dir}' not found. Creating it...")
